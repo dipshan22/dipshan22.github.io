@@ -1,0 +1,37 @@
+{% extends 'nav.html'%}
+{% block content %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>no of pages</th>
+            <th>author</th>
+            <th>price</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+<tbody>
+
+    {% for book in books %}
+
+    <tr>
+        <td>{{book.name}}</td>
+        <td>{{book.no_pgs}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.price}}</td>
+
+        <td><a href="{%url 'edit_books' book.id %}">
+            <button class="btn btn-warning" type="submit">Edit</button>
+        </a></td>
+        <td>
+            <a href="{% url 'delete_books' book.id %}">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</tbody>
+</table>
+{% endblock %}

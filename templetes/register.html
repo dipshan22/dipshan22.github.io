@@ -1,0 +1,20 @@
+{% extends 'nav.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset -md-3">
+            <div class="border p-3">
+                <h3>Registration page</h3>
+                <hr>
+        
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{forms|crispy}}
+                    <button class="btn-btn-sucesss"> save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
